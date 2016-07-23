@@ -1,0 +1,12 @@
+
+- name: Add mongodb repo
+  copy: src=../files/mongodb-org-3.2.repo dest=/etc/yum.repos.d/mongodb-org-3.2.repo  
+
+- name: Install
+  yum: name=mongodb-org state=present
+
+- name: Enable listening on all ports
+  copy: src=../files/mongod.conf dest=/etc/mongod.conf 
+
+- name: Start instance
+  service: name=mongod state=started

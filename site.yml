@@ -1,0 +1,45 @@
+
+- name: Create MongoDB aws instance(s)
+  gather_facts: false
+  connection: local
+  hosts: localhost
+  roles:
+    - {role: aws, name: 'mongodb', count: 1}
+  tags:
+    - aws
+
+- name: Create App aws instance(s)
+  gather_facts: false
+  connection: local
+  hosts: localhost
+  roles:
+    - {role: aws, name: 'vindinium', count: 1}
+  tags:
+    - aws
+
+- name: Deploy MongoDB
+  gather_facts: false 
+  become: yes
+  hosts: mongodb
+  roles:
+    - mongodb
+  tags:
+    - mongodb
+
+- name: Install Docker
+  gather_facts: false
+  become: yes
+  hosts: app
+  roles:
+    - docker
+  tags:
+    - docker
+
+- name: Deploy App
+  gather_facts: false
+  become: yes
+  hosts: app
+  roles:
+    - docker-container
+  tags:
+    - docker-container

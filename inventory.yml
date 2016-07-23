@@ -1,0 +1,7 @@
+
+[mongodb]
+54.171.95.146 private_ip=172.31.39.67 ansible_connection=ssh
+
+[app]
+54.171.80.159 private_ip=172.31.44.141 ansible_connection=ssh
+
