@@ -1,0 +1,13 @@
+
+- name: vindinium container
+  docker:
+    name: vindinium
+    image: jamesmmchugh/vindinium-docker
+    tty: yes
+    pull: always
+    state: started
+    expose:
+      - 9000 
+    ports:
+      - 80:9000
+    env: MONGODB_URI="mongodb://{{ hostvars[groups['mongodb'][0]]['private_ip'] }}:27017/vindinium"
