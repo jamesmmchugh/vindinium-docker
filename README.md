@@ -2,7 +2,10 @@
 Dockerfile for vindinium-docker image and deployment to AWS (2 Nodes, 1 for Vindinium and another for MongoDB)
 
 ## Running locally
+You will need to run a mongo container first:
+1. docker run --name mongo mongo
 
+Then you can run the vindinium container:
 1. docker run -i --link mongo:mongo -p 9000:9000 --name vindinium jamesmmchugh/vindinium-docker
 3. Ctrl+D to exit
 
