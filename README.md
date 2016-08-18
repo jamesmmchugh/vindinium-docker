@@ -1,7 +1,15 @@
 # vindinium-docker
 Dockerfile for vindinium-docker image and deployment to AWS (2 Nodes, 1 for Vindinium and another for MongoDB)
 
-## Pre-Requisites
+## Running locally
+
+1. docker run -it --name vindinium jamesmmchugh/vindinium-docker /bin/bash
+2. Once started run "sbt run"
+3. Ctrl+C to exit
+
+## Running in AWS
+
+### Pre-Requisites
 
 1. You need to install the AWS CLI on your computer (https://aws.amazon.com/cli/)
 2. You need an AWS Account and access to a Secret Key
@@ -10,7 +18,7 @@ Dockerfile for vindinium-docker image and deployment to AWS (2 Nodes, 1 for Vind
 5. Ensure you have a security group called "vindinium" on AWS. This group should have a security rule for MongoDB on TCP port 27017/18
 6. Note that you will have to manually terminate instances from the AWS dashboard after use
 
-## Deployment
+### Deployment
 
 1. ./aws.sh create
 2. ./aws.sh deploy
