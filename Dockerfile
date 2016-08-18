@@ -22,4 +22,4 @@ RUN pwd
 RUN sbt compile
 COPY application.conf conf/application.conf
 
-CMD sbt run
+CMD ["sbt", "run"]
