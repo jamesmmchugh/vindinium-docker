@@ -3,9 +3,8 @@ Dockerfile for vindinium-docker image and deployment to AWS (2 Nodes, 1 for Vind
 
 ## Running locally
 
-1. docker run -it --name vindinium jamesmmchugh/vindinium-docker /bin/bash
-2. Once started run "sbt run"
-3. Ctrl+C to exit
+1. docker run -i --link mongo:mongo -p 9000:9000 --name vindinium jamesmmchugh/vindinium-docker
+3. Ctrl+D to exit
 
 ## Running in AWS
 
